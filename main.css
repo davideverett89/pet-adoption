@@ -1,3 +1,87 @@
 body {
     background-color: beige;
 }
+
+h1 {
+    text-align: center;
+    margin: 50px;
+}
+.button-div {
+    margin: 0 auto;
+    width: 1000px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+button {
+    margin: 10px;
+    display: block;
+    border-radius: 5px;
+    text-align: center;
+    width: 85px;
+    height: 45px;
+}
+
+.flex-box {
+    display: flex;
+    flex-flow: row wrap;
+    margin: auto;
+    width: 90%;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+img {
+    position: relative;
+    bottom: 38px;
+    border-radius: 15px;
+    width: 160px;
+    height: 160px;
+}
+
+.card-header {
+    position: relative;
+    top: 7px;
+}
+
+.color {
+    position: relative;
+    bottom: 47px;
+    border: 0;
+    padding: 0;
+}
+
+.description {
+    position: relative;
+    bottom: 63px;
+    border: 0;
+    padding: 0;
+}
+.card-footer {
+    position: relative;
+    bottom: 75px;
+    border: 0;
+    padding: 0;
+}
+
+.subdiv {
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid black;
+    margin: 10px;
+    width: 300px;
+    height: 350px;
+    padding: 10px;
+}
+
+.card {
+    position: relative;
+    bottom: 68px;
+    height: 365px;
+}
