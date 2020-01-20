@@ -49,12 +49,6 @@ const petArray = [
     },
 ];
 
-// const cats = (isACat) => {
-//     return isACat["Type of Pet"] === "cat";
-// }
-// const dogs = (isADog) => {
-//     return isADog["Type of Pet"] === "dog";
-// }
 const dogsFilter = petArray.filter(function(isADog) {
     return isADog["Type of Pet"] === "dog";
 });
@@ -119,10 +113,6 @@ document.getElementById("all-pets").addEventListener("click", showAll);
 const submitButton = document.getElementById("submit");
 const mainDiv = document.getElementById("main");
 
-// catsButton.addEventListener("click", showCats);
-// dogsButton.addEventListener("click", showDogs);
-// allPetsButton.addEventListener("click", showAll);
-
 const addPet = (image, name, color, skill, type, description) => {
     let newPet = {
         image: image,
@@ -143,9 +133,10 @@ const addPetToArray = () => {
     let newType = document.getElementById("new-type").value;
     let newDes = document.getElementById("description").value;
     let check = [newImage, newName, newColor, newSkill, newType, newDes].some(function (val) {
-        console.log(newDes.length);
         return val === " " || val === "";
     });
+    console.log(newDes.length);
+    console.log(typeof newType);
     if (check) {
         console.log("Whoops");
     } else {
@@ -154,6 +145,7 @@ const addPetToArray = () => {
     }
     document.getElementById("form-div").reset();
     document.getElementById("description").value = "";
+    console.log(petArray);
 }
 
 submitButton.addEventListener("click", addPetToArray);
