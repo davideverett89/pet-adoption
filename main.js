@@ -49,45 +49,49 @@ const petArray = [
     },
 ];
 
-const dogsFilter = petArray.filter(function(isADog) {
-    return isADog["Type of Pet"] === "dog";
-});
-const catsFilter = petArray.filter(function(isACat) {
-    return isACat["Type of Pet"] === "cat";
-});
+// let dogsFilter = petArray.filter(function(isADog) {
+//     return isADog["Type of Pet"] === "dog";
+// });
+// let catsFilter = petArray.filter(function(isACat) {
+//     return isACat["Type of Pet"] === "cat";
+// });
 
 const showCats = () => {
-    let layout = "";
-    for (let i = 0; i < catsFilter.length; i++) {
-        layout += `
-    <div class="subdiv">
-        <div class="card">
-            <h1 class="card-header">${catsFilter[i].name}</h1>
-            <img src="${catsFilter[i].image}" alt="${catsFilter[i].name}">
-            <p class="color">Color: ${catsFilter[i].color}</p>
-            <p class="description">Description: ${petArray[i].description}</p>
-            <footer class="card-footer">Species: ${catsFilter[i]["Type of Pet"]}</footer>
-        </div>
-    </div>`;
+    let output = "";
+    for (let i = 0; i < petArray.length; i++) {
+        if (petArray[i]["Type of Pet"] === "cat") {
+            output += `
+            <div class="subdiv">
+                <div class="card">
+                    <h1 class="card-header">${petArray[i].name}</h1>
+                    <img src="${petArray[i].image}" alt="${petArray[i].name}">
+                    <p class="color">Color: ${petArray[i].color}</p>
+                    <p class="description">Description: ${petArray[i].description}</p>
+                    <footer class="card-footer">Species: ${petArray[i]["Type of Pet"]}</footer>
+                </div>
+            </div>`;
+        }
     }
-    mainDiv.innerHTML = layout;
+    mainDiv.innerHTML = output;
 }
 
 const showDogs = () => {
-    let layout = "";
-    for (let i = 0; i < dogsFilter.length; i++) {
-        layout += `
-    <div class="subdiv">
-        <div class="card">
-            <h1 class="card-header">${dogsFilter[i].name}</h1>
-            <img src="${dogsFilter[i].image}" alt="${dogsFilter[i].name}">
-            <p class="color">Color: ${dogsFilter[i].color}</p>
-            <p class="description">Description: ${petArray[i].description}</p>
-            <footer class="card-footer">Species: ${dogsFilter[i]["Type of Pet"]}</footer>
-        </div>
-    </div>`;
+    let output = "";
+    for (let i = 0; i < petArray.length; i++) {
+        if (petArray[i]["Type of Pet"] === "dog") {
+            output += `
+            <div class="subdiv">
+                <div class="card">
+                    <h1 class="card-header">${petArray[i].name}</h1>
+                    <img src="${petArray[i].image}" alt="${petArray[i].name}">
+                    <p class="color">Color: ${petArray[i].color}</p>
+                    <p class="description">Description: ${petArray[i].description}</p>
+                    <footer class="card-footer">Species: ${petArray[i]["Type of Pet"]}</footer>
+                </div>
+            </div>`;
+        }
     }
-    mainDiv.innerHTML = layout;
+    mainDiv.innerHTML = output;
 }
 
 const showAll = () => {
@@ -135,8 +139,8 @@ const addPetToArray = () => {
     let check = [newImage, newName, newColor, newSkill, newType, newDes].some(function (val) {
         return val === " " || val === "";
     });
-    console.log(newDes.length);
-    console.log(typeof newType);
+    console.log(newDes);
+    console.log(newType);
     if (check) {
         console.log("Whoops");
     } else {
