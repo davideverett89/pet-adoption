@@ -72,27 +72,25 @@ const petCard = (arr) => {
     let domString = "";
     for (let i = 0; i < arr.length; i++) {
         if (arr[i].type.toLowerCase() !== "cat" && arr[i].type.toLowerCase() !== "dog" && arr[i].type.toLowerCase() !== "dinosaur") {
-            domString += `
-            <div class="pet-card">
-                <h2 class="card-header">${arr[i].name.charAt(0).toUpperCase() + arr[i].name.slice(1)}</h2>
-                <img src="${arr[i].image}" alt="${arr[i].name}">
-                <p class="color">Color: ${arr[i].color.charAt(0).toUpperCase() + arr[i].color.slice(1)}</p>
-                <p class="description">${arr[i].skill}</p>
-                <footer class="card-footer other">
-                    <p>${arr[i].type.charAt(0).toUpperCase() + arr[i].type.slice(1)}</p>
-                </footer>
-            </div>`;
+            domString += '<div class="pet-card">';
+            domString +=    `<h2 class="card-header">${arr[i].name.charAt(0).toUpperCase() + arr[i].name.slice(1)}</h2>`;
+            domString +=    `<img src="${arr[i].image}" alt="${arr[i].name}">`;
+            domString +=    `<p class="color">Color: ${arr[i].color.charAt(0).toUpperCase() + arr[i].color.slice(1)}</p>`;
+            domString +=    `<p class="description">${arr[i].skill}</p>`;
+            domString +=    '<footer class="card-footer other">';
+            domString +=        `<p>${arr[i].type.charAt(0).toUpperCase() + arr[i].type.slice(1)}</p>`;
+            domString +=    '</footer>';
+            domString += '</div>';
         } else {
-            domString += `
-            <div class="pet-card">
-                <h2 class="card-header">${arr[i].name.charAt(0).toUpperCase() + arr[i].name.slice(1)}</h2>
-                <img src="${arr[i].image}" alt="${arr[i].name}">
-                <p class="color">Color: ${arr[i].color.charAt(0).toUpperCase() + arr[i].color.slice(1)}</p>
-                <p class="description">${arr[i].skill}</p>
-                <footer class="card-footer ${arr[i].type.toLowerCase()}">
-                    <p>${arr[i].type.charAt(0).toUpperCase() + arr[i].type.slice(1)}</p>
-                </footer>
-            </div>`;
+            domString += '<div class="pet-card">';
+            domString +=    `<h2 class="card-header">${arr[i].name.charAt(0).toUpperCase() + arr[i].name.slice(1)}</h2>`;
+            domString +=    `<img src="${arr[i].image}" alt="${arr[i].name}">`;
+            domString +=    `<p class="color">Color: ${arr[i].color.charAt(0).toUpperCase() + arr[i].color.slice(1)}</p>`;
+            domString +=    `<p class="description">${arr[i].skill}</p>`;
+            domString +=    `<footer class="card-footer ${arr[i].type.toLowerCase()}">`;
+            domString +=        `<p>${arr[i].type.charAt(0).toUpperCase() + arr[i].type.slice(1)}</p>`;
+            domString +=    '</footer>';
+            domString += '</div>';
         }
     }
     printToDOM("main", domString);
@@ -116,17 +114,16 @@ const showPets = (e) => {
 const showOther = () => {
     let output = "";
     for (let i = 0; i < petArray.length; i++) {
-        if (petArray[i].type.toLowerCase() !== "cat" && petArray[i].type.toLowerCase() !== "dog" && petArray[i].type.toLowerCase() !== "dinosaur") {
-            output += `
-            <div class="pet-card">
-                <h2 class="card-header">${petArray[i].name.charAt(0).toUpperCase() + petArray[i].name.slice(1)}</h2>
-                <img src="${petArray[i].image}" alt="${petArray[i].name}">
-                <p class="color">Color: ${petArray[i].color.charAt(0).toUpperCase() + petArray[i].color.slice(1)}</p>
-                <p class="description">${petArray[i].skill}</p>
-                <footer class="card-footer other">
-                    <p>${petArray[i].type.charAt(0).toUpperCase() + petArray[i].type.slice(1)}</p>
-                </footer>
-            </div>`;
+        if (petArray[i].type.toLowerCase() !== "cat" && petArray[i].type.toLowerCase() !== "dog" && petArray[i].type.toLowerCase() !== "dinosaur") { 
+            output += '<div class="pet-card">';
+            output +=    `<h2 class="card-header">${petArray[i].name.charAt(0).toUpperCase() + petArray[i].name.slice(1)}</h2>`;
+            output +=    `<img src="${petArray[i].image}" alt="${petArray[i].name}">`;
+            output +=    `<p class="color">Color: ${petArray[i].color.charAt(0).toUpperCase() + petArray[i].color.slice(1)}</p>`;
+            output +=    `<p class="description">${petArray[i].skill}</p>`;
+            output +=    '<footer class="card-footer other">';
+            output +=        `<p>${petArray[i].type.charAt(0).toUpperCase() + petArray[i].type.slice(1)}</p>`;
+            output +=    '</footer>';
+            output += '</div>';
         }
     }
     printToDOM("main", output);
@@ -161,14 +158,16 @@ const addPetToArray = () => {
     document.getElementById("new-skill").value = "";
 }
 
-const init = () => {
-    petCard(petArray);
-    event();
-}
-
 document.getElementById("cat").addEventListener("click", showPets);
 document.getElementById("dog").addEventListener("click", showPets);
 document.getElementById("dinosaur").addEventListener("click", showPets);
 document.getElementById("other").addEventListener("click", showOther);
 document.getElementById("all-pets").addEventListener("click", showPets);
 document.getElementById("submit").addEventListener("click", addPetToArray);
+
+const init = () => {
+    petCard(petArray);
+    event();
+}
+
+init();
